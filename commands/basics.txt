@@ -1,0 +1,54 @@
+########### BASICS #############
+
+Parar um container
+> docker stop <CONTAINER ID> ou docker stop <NAME>
+
+Reiniciar um container
+Ou seja, se um container foi parado, pode reutiliza-lo.
+> docker start <CONTAINER ID>
+
+Definir um nome para o container
+Utilizando a flag --name
+> docker run -d -p 80:80 --name nginx_app nginx
+
+Acessando os logs de um container
+> docker logs <CONTAINER ID> ou docker logs <NAME>
+
+Ou para ficar sempre monitorando, utilizar a flag -f
+> docker logs -f <CONTAINER ID>
+
+Removendo containers
+> docker rm <CONTAINER ID>
+
+Se o container estiver em execução, pode parar manualmente ou utilizar a flag -f para forçar a remoção
+> docker rm <CONTAINER ID> -f
+
+
+########### TRABALHANDO COM IMAGENS ############
+
+Depois de criar o Dockerfile, conforme exemplo no projeto 1_IMAGENS_E_CONTAINERS, faça o build para que o docker
+crie uma imagem: 
+
+> docker build .
+
+Verifique se a imagem foi criada: 
+> docker images
+
+Crie um novo container a partir da imagem:
+> docker run -d -p 3001:3000 --name meu_node <CONTAINER ID>
+
+Caso precise alterar algo no codigo fonte, deverá fazer um novo build.
+
+Baixar uma imagem (sem criar container). Ou seja, para utilização futura já ficar em cache.
+
+> docker pull <NOME DA IMAGEM>
+
+Renomear uma imagem
+> docker tag <IMAGE ID> minhaimagem
+
+Renomear uma imagem e criando uma tag
+> docker tag <IMAGE ID> minhaimagem:minhatag
+
+
+
+
